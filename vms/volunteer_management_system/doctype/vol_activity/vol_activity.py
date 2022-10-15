@@ -4,5 +4,8 @@
 # import frappe
 from frappe.model.document import Document
 
+
 class VolActivity(Document):
-	pass
+    """Volunteer Activity."""
+
+    pass
