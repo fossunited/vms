@@ -185,3 +185,9 @@ app_license = "MIT"
 # auth_hooks = [
 #	"vms.auth.validate"
 # ]
+
+fixtures = [
+    {"dt": "Web Page", "filters": [["module", "in", ("volunteer management system")]]},
+    {"dt": "Web Template", "filters": [["module", "in", ("volunteer management system")]]},
+    {"dt": "Web Form", "filters": [["module", "in", ("volunteer management system")]]},
+]
