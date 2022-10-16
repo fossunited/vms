@@ -24,13 +24,24 @@
     "parentfield": "fields",
     "parenttype": "Web Template",
     "reqd": 0
+   },
+   {
+    "default": "10",
+    "fieldname": "limit",
+    "fieldtype": "Int",
+    "label": "Limit",
+    "options": null,
+    "parent": "Top volunteers",
+    "parentfield": "fields",
+    "parenttype": "Web Template",
+    "reqd": 1
    }
   ],
-  "modified": "2022-10-14 17:20:24.980148",
+  "modified": "2022-10-16 10:01:11.011436",
   "module": "volunteer management system",
   "name": "Top volunteers",
   "standard": 0,
-  "template": "{% set checkins = frappe.db.sql(\"\"\"SELECT c.name, up.username, ifnull(up.user_image, '/files/logo.png') as profile_thumbnail, c.creation, up.first_name as owner, a.activity_name as chapter, SEC_TO_TIME(SUM(TIME_TO_SEC(hours_spent))) as checkin_count from `tabVol Checkin` c  inner join `tabUser` as up on c.user = up.name inner join `tabVol Activity` as a on c.activity = a.name WHERE  date(c.creation) > DATE(DATE_SUB(NOW(), INTERVAL 60 DAY)) group by c.user order by checkin_count desc limit 10\"\"\", args, as_dict=True    ) %}\n\n<h2>{{ title }}</h2>\n    <div>{{ subtitle }}</div>\n\n<table>\n        <tr>\n            <th class='table-header'></th>\n            <th class='table-header'></th>\n            <th class='table-header'>Name</th>\n            <th class='table-header'>Event</th>\n            <th class='table-header'>Time</th>\n        </tr>\n        {% for checkin in checkins %}\n        \n            <tr>\n                <td class='text-center'> {{loop.index}}.</td>\n                <td class='text-center'><span><img src={{checkin.profile_thumbnail}} width='90px' height='90px' style=\"border-radius: 50%;object-fit:cover;\"> </span></td>\n                <td class='border-bottom'> <a href=\"/r/{{ checkin.username }}\"> {{ checkin.owner.title() }} </a></td>\n                <td class='border-bottom'> <a href = '/city/{{ checkin.chapter }}'>{{ checkin.chapter }}</a> </td>\n                <td class='border-bottom'>{{ checkin.checkin_count }}</td>\n            </tr>\n        {% endfor %}\n        \n    </table>\n    {% if args %}\n    <a href='/robins?city={{ args.city}}' style=\"float: right;margin-top: 20px;\" >View more</a>\n    {% else %}\n    <a href='/robins' style=\"float: right;margin-top: 20px;\" >View more</a>\n    {% endif %}\n    ",
+  "template": "{% set checkins = frappe.db.sql(\"\"\"SELECT c.name, up.username, ifnull(up.user_image, '/files/logo.png') as profile_thumbnail, c.creation, up.first_name as owner, a.activity_name as chapter, SEC_TO_TIME(SUM(TIME_TO_SEC(hours_spent))) as checkin_count from `tabVol Checkin` c  inner join `tabUser` as up on c.user = up.name inner join `tabVol Activity` as a on c.activity = a.name WHERE  date(c.creation) > DATE(DATE_SUB(NOW(), INTERVAL 60 DAY)) group by c.user order by checkin_count desc limit %(limit)s\"\"\", {\"limit\": limit}, as_dict=True    ) %}\n\n<h2>{{ title }}</h2>\n    <div>{{ subtitle }}</div>\n\n<table>\n        <tr>\n            <th class='table-header'></th>\n            <th class='table-header'></th>\n            <th class='table-header'>Name</th>\n            <th class='table-header'>Event</th>\n            <th class='table-header'>Time</th>\n        </tr>\n        {% for checkin in checkins %}\n        \n            <tr>\n                <td class='text-center'> {{loop.index}}.</td>\n                <td class='text-center'><span><img src={{checkin.profile_thumbnail}} width='50px' height='50px' style=\"border-radius: 50%;object-fit:cover;\"> </span></td>\n                <td class='border-bottom'> <a href=\"/r/{{ checkin.username }}\"> {{ checkin.owner.title() }} </a></td>\n                <td class='border-bottom'> <a href = '/city/{{ checkin.chapter }}'>{{ checkin.chapter }}</a> </td>\n                <td class='border-bottom'>{{ checkin.checkin_count }}</td>\n            </tr>\n        {% endfor %}\n        \n    </table>\n    \n    <a href='/volunteers' id=\"view_more_vols\" style=\"float: right;margin-top: 20px;\" >View more</a>\n",
   "type": "Section"
  }
 ]

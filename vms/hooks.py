@@ -191,3 +191,9 @@ fixtures = [
     {"dt": "Web Template", "filters": [["module", "in", ("volunteer management system")]]},
     {"dt": "Web Form", "filters": [["module", "in", ("volunteer management system")]]},
 ]
+
+doc_events = {
+    "User": {
+        "before_insert": "vms.utils.user.username"
+    }
+}
