@@ -1,0 +1,84 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-10-17 12:24:36.212021",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "date",
+  "time",
+  "activity",
+  "unmarked_checkins_section",
+  "unmarked_volunteers",
+  "marked_checkins_section",
+  "marked_volunteers"
+ ],
+ "fields": [
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "time",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "Time ",
+   "reqd": 1
+  },
+  {
+   "fieldname": "activity",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Activity",
+   "options": "Vol Activity",
+   "reqd": 1
+  },
+  {
+   "fieldname": "unmarked_checkins_section",
+   "fieldtype": "Section Break",
+   "label": "Unmarked Checkins"
+  },
+  {
+   "fieldname": "unmarked_volunteers",
+   "fieldtype": "HTML",
+   "label": "Unmaked Volunteers"
+  },
+  {
+   "fieldname": "marked_checkins_section",
+   "fieldtype": "Section Break",
+   "label": "Marked Checkins"
+  },
+  {
+   "fieldname": "marked_volunteers",
+   "fieldtype": "HTML",
+   "label": "Marked Volunteers"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2022-10-17 13:04:45.168860",
+ "modified_by": "Administrator",
+ "module": "volunteer management system",
+ "name": "Vol Checkin Tool",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

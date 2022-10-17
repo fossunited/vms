@@ -1,7 +1,8 @@
 # Copyright (c) 2022, Shridhar Patil and contributors
 # For license information, please see license.txt
-
+import json
 import frappe
+
 from frappe.model.document import Document
 
 
@@ -32,3 +33,17 @@ class VolCheckin(Document):
 			self.status = "Pending"
 		else:
 			self.status = "Approved"
+
+
+@frappe.whitelist()
+def mark_volunteer_checkin(volunteer_list, status, date, activity):
+	volunteer_list = json.loads(volunteer_list)
+	for volunteer in volunteer_list:
+		checkin = frappe.new_doc("Vol Checkin")
+		checkin.user = volunteer['name']
+		checkin.date = date
+		checkin.activity = activity
+		checkin.save()
+		checkin.status = status
+		checkin.save()
+	return
