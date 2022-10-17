@@ -61,9 +61,9 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2022-10-17 13:04:45.168860",
+ "modified": "2022-10-17 20:49:58.212716",
  "modified_by": "Administrator",
- "module": "volunteer management system",
+ "module": "vms",
  "name": "Vol Checkin Tool",
  "owner": "Administrator",
  "permissions": [

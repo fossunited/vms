@@ -1,7 +1,7 @@
 from . import __version__ as app_version
 
 app_name = "vms"
-app_title = "volunteer management system"
+app_title = "vms"
 app_publisher = "Shridhar Patil"
 app_description = "managing and engaging volunteers"
 app_email = "shridhar.p@zerodha.com"
@@ -187,9 +187,9 @@ app_license = "MIT"
 # ]
 
 fixtures = [
-    {"dt": "Web Page", "filters": [["module", "in", ("volunteer management system")]]},
-    {"dt": "Web Template", "filters": [["module", "in", ("volunteer management system")]]},
-    {"dt": "Web Form", "filters": [["module", "in", ("volunteer management system")]]},
+    {"dt": "Web Page", "filters": [["module", "in", ("vms")]]},
+    {"dt": "Web Template", "filters": [["module", "in", ("vms")]]},
+    {"dt": "Web Form", "filters": [["module", "in", ("vms")]]},
 ]
 
 doc_events = {

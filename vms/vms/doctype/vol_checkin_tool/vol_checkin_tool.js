@@ -26,7 +26,7 @@ frappe.volunteercheckin_tool = {
 	load_volunteers: function(frm) {
 		if(frm.doc.date) {
 			frappe.call({
-				method: "vms.volunteer_management_system.doctype.vol_checkin_tool.vol_checkin_tool.get_volunteer",
+				method: "vms.vms.doctype.vol_checkin_tool.vol_checkin_tool.get_volunteer",
 				args: {
 					date: frm.doc.date,
 					activity: frm.doc.activity
@@ -111,7 +111,7 @@ frappe.VolunteerSelector = Class.extend({
 					}
 				});
 				frappe.call({
-					method: "vms.volunteer_management_system.doctype.vol_checkin.vol_checkin.mark_volunteer_checkin",
+					method: "vms.vms.doctype.vol_checkin.vol_checkin.mark_volunteer_checkin",
 					args:{
 						"volunteer_list":vol_present,
 						"status":"Approved",
@@ -144,7 +144,7 @@ frappe.VolunteerSelector = Class.extend({
 					}
 				});
 				frappe.call({
-					method: "vms.volunteer_management_system.doctype.vol_checkin.vol_checkin.mark_volunteer_checkin",
+					method: "vms.vms.doctype.vol_checkin.vol_checkin.mark_volunteer_checkin",
 					args:{
 						"volunteer_list": vol_absent,
 						"status":"Approved",
