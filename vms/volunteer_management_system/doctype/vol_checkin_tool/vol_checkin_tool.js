@@ -16,6 +16,9 @@ frappe.ui.form.on('Vol Checkin Tool', {
 	date: function(frm) {
 		frappe.volunteercheckin_tool.load_volunteers(frm);
 	},
+	activity: function(frm) {
+		frappe.volunteercheckin_tool.load_volunteers(frm);
+	},
 });
 
 
@@ -23,9 +26,10 @@ frappe.volunteercheckin_tool = {
 	load_volunteers: function(frm) {
 		if(frm.doc.date) {
 			frappe.call({
-				method: "vms.volunteer_management_system.doctype.vol_checkin_tool.vol_checkin_tool.get_volunteer?",
+				method: "vms.volunteer_management_system.doctype.vol_checkin_tool.vol_checkin_tool.get_volunteer",
 				args: {
-					date: frm.doc.date
+					date: frm.doc.date,
+					activity: frm.doc.activity
 				},
 				callback: function(r) {
 					if(r.message['unmarked'].length > 0) {
@@ -117,6 +121,13 @@ frappe.VolunteerSelector = Class.extend({
 					},
 
 					callback: function(r) {
+						var msg = {"indicator": "green", "message": r.message.message}
+
+						if(r.message.status == 'error'){
+							msg['indicator'] = "red"
+						}
+						frappe.show_alert(msg)
+
 						frappe.volunteercheckin_tool.load_volunteers(frm);
 
 					}

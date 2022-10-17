@@ -37,13 +37,23 @@ class VolCheckin(Document):
 
 @frappe.whitelist()
 def mark_volunteer_checkin(volunteer_list, status, date, activity):
-	volunteer_list = json.loads(volunteer_list)
-	for volunteer in volunteer_list:
-		checkin = frappe.new_doc("Vol Checkin")
-		checkin.user = volunteer['name']
-		checkin.date = date
-		checkin.activity = activity
-		checkin.save()
-		checkin.status = status
-		checkin.save()
-	return
+	res = {
+
+		"message": "Checkins Updated",
+		"status": "success"
+	}
+	try:
+		volunteer_list = json.loads(volunteer_list)
+		for volunteer in volunteer_list:
+			checkin = frappe.new_doc("Vol Checkin")
+			checkin.user = volunteer['name']
+			checkin.date = date
+			checkin.activity = activity
+			checkin.save()
+			checkin.status = status
+			checkin.save()
+	except Exception as e:
+		res['message'] = str(e)
+		res['status'] = "error"
+
+	return res
