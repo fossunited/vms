@@ -1,0 +1,76 @@
+[
+ {
+  "charts": [],
+  "content": "[{\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">VMS</span>\",\"col\":12}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"City\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Checkin\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Activity list\",\"col\":3}}]",
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "share-people",
+  "label": "VMS",
+  "links": [],
+  "modified": "2023-01-13 10:45:31.705678",
+  "module": "vms",
+  "name": "VMS",
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [
+   {
+    "document_type": "Vol Activity",
+    "label": "Activity",
+    "parent": "VMS",
+    "parentfield": "quick_lists",
+    "parenttype": "Workspace",
+    "quick_list_filter": null
+   }
+  ],
+  "restrict_to_domain": null,
+  "roles": [],
+  "sequence_id": 1.0,
+  "shortcuts": [
+   {
+    "color": "Grey",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "label": "City",
+    "link_to": "Volunteer Cities",
+    "parent": "VMS",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": null,
+    "type": "DocType"
+   },
+   {
+    "color": "Grey",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "label": "Checkin",
+    "link_to": "Vol Checkin",
+    "parent": "VMS",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": null,
+    "type": "DocType"
+   },
+   {
+    "color": "Grey",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "label": "Activity list",
+    "link_to": "Vol Activity",
+    "parent": "VMS",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": null,
+    "type": "DocType"
+   }
+  ],
+  "title": "VMS"
+ }
+]

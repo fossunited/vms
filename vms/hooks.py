@@ -190,6 +190,7 @@ fixtures = [
     {"dt": "Web Page", "filters": [["module", "in", ("vms")]]},
     {"dt": "Web Template", "filters": [["module", "in", ("vms")]]},
     {"dt": "Web Form", "filters": [["module", "in", ("vms")]]},
+    {"dt": "Workspace", "filters": [["module", "in", ("vms")]]},
 ]
 
 doc_events = {
