@@ -1,29 +1,53 @@
 [
  {
   "charts": [],
-  "content": "[{\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">VMS</span>\",\"col\":12}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"City\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Checkin\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Activity list\",\"col\":3}}]",
+  "content": "[{\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">VMS</span>\",\"col\":12}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"City\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Checkin\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Activity list\",\"col\":3}},{\"type\":\"spacer\",\"data\":{\"col\":12}},{\"type\":\"card\",\"data\":{\"card_name\":\"Checkin tool\",\"col\":4}}]",
   "docstatus": 0,
   "doctype": "Workspace",
   "for_user": "",
   "hide_custom": 0,
   "icon": "share-people",
   "label": "VMS",
-  "links": [],
-  "modified": "2023-01-13 10:45:31.705678",
+  "links": [
+   {
+    "dependencies": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Checkin tool",
+    "link_count": 1,
+    "link_to": null,
+    "link_type": null,
+    "onboard": 0,
+    "only_for": null,
+    "parent": "VMS",
+    "parentfield": "links",
+    "parenttype": "Workspace",
+    "type": "Card Break"
+   },
+   {
+    "dependencies": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Vol Checkin Tool",
+    "link_count": 0,
+    "link_to": "Vol Checkin Tool",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "parent": "VMS",
+    "parentfield": "links",
+    "parenttype": "Workspace",
+    "type": "Link"
+   }
+  ],
+  "modified": "2023-01-15 12:59:18.566774",
   "module": "vms",
   "name": "VMS",
   "parent_page": "",
   "public": 1,
-  "quick_lists": [
-   {
-    "document_type": "Vol Activity",
-    "label": "Activity",
-    "parent": "VMS",
-    "parentfield": "quick_lists",
-    "parenttype": "Workspace",
-    "quick_list_filter": null
-   }
-  ],
+  "quick_lists": [],
   "restrict_to_domain": null,
   "roles": [],
   "sequence_id": 1.0,

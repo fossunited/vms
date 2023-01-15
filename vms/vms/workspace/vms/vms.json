@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">VMS</span>\",\"col\":12}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"City\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Checkin\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Activity list\",\"col\":3}}]",
+ "content": "[{\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">VMS</span>\",\"col\":12}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"City\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Checkin\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Activity list\",\"col\":3}},{\"type\":\"spacer\",\"data\":{\"col\":12}},{\"type\":\"card\",\"data\":{\"card_name\":\"Checkin tool\",\"col\":4}}]",
  "creation": "2023-01-13 10:42:21.992453",
  "docstatus": 0,
  "doctype": "Workspace",
@@ -9,20 +9,34 @@
  "icon": "share-people",
  "idx": 0,
  "label": "VMS",
- "links": [],
- "modified": "2023-01-13 10:45:31.705678",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Checkin tool",
+   "link_count": 1,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vol Checkin Tool",
+   "link_count": 0,
+   "link_to": "Vol Checkin Tool",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2023-01-15 12:59:18.566774",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "VMS",
  "owner": "Administrator",
  "parent_page": "",
  "public": 1,
- "quick_lists": [
-  {
-   "document_type": "Vol Activity",
-   "label": "Activity"
-  }
- ],
+ "quick_lists": [],
  "roles": [],
  "sequence_id": 1.0,
  "shortcuts": [
