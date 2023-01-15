@@ -54,7 +54,7 @@
   "list_title": null,
   "login_required": 1,
   "max_attachment_size": 0,
-  "modified": "2023-01-12 16:54:10.114129",
+  "modified": "2023-01-15 13:19:16.483459",
   "module": "vms",
   "name": "checkin",
   "print_format": null,
@@ -69,7 +69,7 @@
   "title": "Checkin",
   "web_form_fields": [
    {
-    "allow_read_on_all_link_options": 0,
+    "allow_read_on_all_link_options": 1,
     "default": null,
     "depends_on": null,
     "description": null,
@@ -177,7 +177,7 @@
   "list_title": null,
   "login_required": 1,
   "max_attachment_size": 0,
-  "modified": "2023-01-12 16:33:19.078418",
+  "modified": "2023-01-15 13:19:36.283172",
   "module": "vms",
   "name": "mapping",
   "print_format": null,
@@ -192,7 +192,7 @@
   "title": "Volunteer Mapping",
   "web_form_fields": [
    {
-    "allow_read_on_all_link_options": 0,
+    "allow_read_on_all_link_options": 1,
     "default": null,
     "depends_on": null,
     "description": null,
