@@ -37,11 +37,11 @@
     "reqd": 1
    }
   ],
-  "modified": "2023-01-15 14:03:36.272258",
+  "modified": "2023-01-17 11:35:09.693307",
   "module": "vms",
   "name": "Top volunteers",
   "standard": 0,
-  "template": "{% set checkins = frappe.db.sql(\"\"\"SELECT c.name, up.username, ifnull(up.user_image, '/files/logo.png') as profile_thumbnail, c.creation, up.full_name as owner, a.activity_name as chapter, SEC_TO_TIME(SUM(TIME_TO_SEC(hours_spent))) as checkin_count from `tabVol Checkin` c  inner join `tabUser` as up on c.user = up.name inner join `tabVol Activity` as a on c.activity = a.name WHERE  date(c.creation) > DATE(DATE_SUB(NOW(), INTERVAL 60 DAY)) group by c.user order by checkin_count desc limit %(limit)s\"\"\", {\"limit\": limit}, as_dict=True    ) %}\n\n<h3>{{ title }}</h3>\n    <div>{{ subtitle }}</div>\n\n<table>\n        <tr>\n            <th class='table-header'></th>\n            <th class='table-header'></th>\n            <th class='table-header'>Name</th>\n            <th class='table-header'>Event</th>\n            <th class='table-header'>Time</th>\n        </tr>\n        {% for checkin in checkins %}\n        \n            <tr>\n                <td class='text-center'> {{loop.index}}.</td>\n                <td class='text-center'><span><img src={{checkin.profile_thumbnail}} width='50px' height='50px' style=\"border-radius: 50%;object-fit:cover;\"> </span></td>\n                <td class='border-bottom'> <a href=\"/r/{{ checkin.username }}\"> {{ checkin.owner.title() }} </a></td>\n                <td class='border-bottom'> <a href = '/city/{{ checkin.chapter }}'>{{ checkin.chapter }}</a> </td>\n                <td class='border-bottom'>{{ checkin.checkin_count }}</td>\n            </tr>\n        {% endfor %}\n        \n    </table>\n    \n    <a href='/volunteers' id=\"view_more_vols\" style=\"float: right;margin-top: 20px;\" >View more</a>\n",
+  "template": "{% set checkins = frappe.db.sql(\"\"\"SELECT c.name, up.username, ifnull(up.user_image, '/files/logo.png') as profile_thumbnail, c.creation, up.full_name as owner, a.activity_name as chapter, SEC_TO_TIME(SUM(TIME_TO_SEC(hours_spent))) as checkin_count from `tabVol Checkin` c  inner join `tabUser` as up on c.user = up.name inner join `tabVol Activity` as a on c.activity = a.name WHERE  date(c.creation) > DATE(DATE_SUB(NOW(), INTERVAL 60 DAY)) group by c.user order by checkin_count desc limit %(limit)s\"\"\", {\"limit\": limit}, as_dict=True    ) %}\n\n<h3>{{ title }}</h3>\n    <div>{{ subtitle }}</div>\n\n<table>\n        <tr>\n            <th class='table-header'></th>\n            <th class='table-header'></th>\n            <th class='table-header'>Name</th>\n            <th class='table-header'>Activity</th>\n            <th class='table-header'>Time</th>\n        </tr>\n        {% for checkin in checkins %}\n        \n            <tr>\n                <td class='text-center'> {{loop.index}}.</td>\n                <td class='text-center'><span><img src={{checkin.profile_thumbnail}} width='50px' height='50px' style=\"border-radius: 50%;object-fit:cover;\"> </span></td>\n                <td class='border-bottom'> <a href=\"/r/{{ checkin.username }}\"> {{ checkin.owner.title() }} </a></td>\n                <td class='border-bottom'> <a href = '/city/{{ checkin.chapter }}'>{{ checkin.chapter }}</a> </td>\n                <td class='border-bottom'>{{ checkin.checkin_count }}</td>\n            </tr>\n        {% endfor %}\n        \n    </table>\n    \n    <a href='/volunteers' id=\"view_more_vols\" style=\"float: right;margin-top: 20px;\" >View more</a>\n",
   "type": "Section"
  },
  {
@@ -60,11 +60,11 @@
     "reqd": 0
    }
   ],
-  "modified": "2023-01-16 15:17:05.504924",
+  "modified": "2023-01-17 12:48:14.109984",
   "module": "vms",
   "name": "Current Activities",
   "standard": 0,
-  "template": "{% set activities = frappe.get_all('Vol Activity', fields=['*'], filters={'status': 'Open'}, order_by='start_date DESC')%}\n\n<h2 class=\"section-title\">{{ title }}</h2>\n\n<div class=\"row mt-4\">\n{% for activity in activities %}\n<div class=\"col-md-4  \" id=\"conference\">\n    <div class=\"card mb-2\">\n  <div class=\"card-body\">\n    <h5 class=\"card-title\">{{activity.activity_name}}</h5>\n    <p class=\"card-text\">{{activity.description}}</p>\n  </div>\n  \n  <ul class=\"list-group list-group-flush\">\n    <li class=\"list-group-item\">{{ frappe.format_date(activity.start_date) }}</li>\n  </ul>\n  <div class=\"card-body\">\n    <a href=\"{{activity.activity_name}}\" class=\"btn btn-primary\">View Details</a>\n  </div>\n  </div>\n</div>\n{% endfor %}\n</div>",
+  "template": "{% set activities = frappe.get_all('Vol Activity', fields=['*'], filters={'status': 'Open'}, order_by='start_date DESC')%}\n\n<h2 class=\"section-title\">{{ title }}</h2>\n\n<div class=\"row mt-4\">\n{% for activity in activities %}\n<div class=\"col-md-4  \" id=\"conference\">\n    <div class=\"card mb-2\">\n  <div class=\"card-body\">\n      {% if activity.city %}\n      <span class=\"city\">{{ activity.city }}</span>\n      {% endif %}\n    <h5 class=\"card-title\">{{activity.activity_name}}</h5>\n    <p class=\"card-text\">{{activity.description}}</p>\n  </div>\n  \n  <ul class=\"list-group list-group-flush\">\n    <li class=\"list-group-item\">{{ frappe.format_date(activity.start_date) }}</li>\n  </ul>\n  <div class=\"card-body\">\n    <a href=\"{{activity.activity_name}}\" class=\"btn btn-primary\">View Details</a>\n  </div>\n  </div>\n</div>\n{% endfor %}\n</div>",
   "type": "Section"
  },
  {
@@ -83,11 +83,11 @@
     "reqd": 0
    }
   ],
-  "modified": "2023-01-16 15:17:48.693094",
+  "modified": "2023-01-16 17:47:43.397173",
   "module": "vms",
   "name": "Past Activities",
   "standard": 0,
-  "template": "{% set activities = frappe.get_all('Vol Activity', fields=['*'], filters={'status': 'Closed'}, order_by='start_date DESC')%}\n\n<h2 class=\"section-title\">{{ title }}</h2>\n\n<div class=\"row mt-4\">\n{% for activity in activities %}\n<div class=\"col-md-4  \" id=\"conference\">\n    <div class=\"card mb-2\">\n  <div class=\"card-body\">\n    <h5 class=\"card-title\">{{activity.activity_name}}</h5>\n    <p class=\"card-text\">{{activity.description}}</p>\n  </div>\n  \n  <ul class=\"list-group list-group-flush\">\n    <li class=\"list-group-item\">{{ frappe.format_date(activity.start_date) }}</li>\n  </ul>\n  <div class=\"card-body\">\n    <a href=\"{{activity.activity_name}}\" class=\"btn btn-primary\">View Details</a>\n  </div>\n  </div>\n</div>\n{% endfor %}\n</div>",
+  "template": "{% set activities = frappe.get_all('Vol Activity', fields=['*'], filters={'status': 'Closed'}, order_by='start_date DESC')%}\n\n<h2 class=\"section-title\">{{ title }}</h2>\n\n<div class=\"row mt-4\">\n{% for activity in activities %}\n<div class=\"col-md-4  \" id=\"conference\">\n    <div class=\"card mb-2\">\n  <div class=\"card-body\">\n    <h5 class=\"card-title\">{{activity.activity_name}}</h5>\n    <p class=\"card-text\">{{activity.description}}</p>\n  </div>\n  \n  <ul class=\"list-group list-group-flush\">\n    <li class=\"list-group-item\">{{ frappe.format_date(activity.start_date) }}</li>\n  </ul>\n  <div class=\"card-body\">\n    <a href=\"/activity/{{activity.activity_name}}\" class=\"btn btn-primary\">View Details</a>\n  </div>\n  </div>\n</div>\n{% endfor %}\n</div>",
   "type": "Section"
  }
 ]
