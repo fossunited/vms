@@ -60,11 +60,11 @@
     "reqd": 0
    }
   ],
-  "modified": "2023-01-18 18:33:08.983416",
+  "modified": "2023-01-23 11:55:33.938497",
   "module": "vms",
   "name": "Current Activities",
   "standard": 0,
-  "template": "{% set activities = frappe.db.sql(\"\"\" select a.activity_name, a.city, a.description, a.start_date, a.status, m.user from `tabVol Activity` a left outer  join `tabVolunteer Mapping` as m on a.city = m.city and m.user = %(user)s where (a.city is null or a.city = m.city or a.city = '') and status = %(status)s order by a.start_date desc\"\"\", {'status': 'Open', 'user': frappe.session.user}, as_dict=True )%}\n\n<h2 class=\"section-title\">{{ title }}</h2>\n\n<div class=\"row mt-4\">\n{% for activity in activities %}\n<div class=\"col-md-4  \" id=\"conference\">\n    <div class=\"mb-2\">\n  <div class=\"card-body\">\n      {% if activity.city %}\n      <span class=\"city\">{{ activity.city }}</span>\n      {%else%}\n      <span class=\"city\">Pan India</span>\n      {% endif %}\n    <h5 class=\"card-title\">{{activity.activity_name}}</h5>\n    <p class=\"card-text\">{{activity.description}}</p>\n  </div>\n  \n  <ul class=\"list-group list-group-flush\">\n    <li class=\"list-group-item date\">Start: {{ frappe.format_date(activity.start_date) }}</li>\n  </ul>\n  <div class=\"card-body\">\n    <a href=\"{{activity.activity_name}}\" class=\"checkin\">MORE DETAILS</a>\n  </div>\n  </div>\n</div>\n{% endfor %}\n</div>",
+  "template": "{% set activities = frappe.db.sql(\"\"\" select a.activity_name, a.city, a.description, a.start_date, a.status, m.user from `tabVol Activity` a left outer  join `tabVolunteer Mapping` as m on a.city = m.city and m.user = %(user)s where (a.city is null or a.city = m.city or a.city = '') and status = %(status)s order by a.start_date desc\"\"\", {'status': 'Open', 'user': frappe.session.user}, as_dict=True )%}\n\n<h2 class=\"section-title\">{{ title }}</h2>\n\n<div class=\"row mt-4\">\n{% for activity in activities %}\n<div class=\"col-md-4  \" id=\"conference\">\n    <div class=\"mb-2\">\n  <div class=\"card-body\">\n      {% if activity.city %}\n      <span class=\"city\">{{ activity.city }}</span>\n      {%else%}\n      <span class=\"city\">Pan India</span>\n      {% endif %}\n    <h5 class=\"card-title\">{{activity.activity_name}}</h5>\n    <p class=\"card-text\">{{activity.description}}</p>\n  </div>\n  \n  <ul class=\"list-group list-group-flush\">\n    <li class=\"list-group-item date\">Start: {{ frappe.format_date(activity.start_date) }}</li>\n  </ul>\n  <div class=\"card-body\">\n    <a href=\"activity/{{activity.activity_name}}\" class=\"checkin\">MORE DETAILS</a>\n  </div>\n  </div>\n</div>\n{% endfor %}\n</div>",
   "type": "Section"
  },
  {
@@ -83,11 +83,11 @@
     "reqd": 0
    }
   ],
-  "modified": "2023-01-18 18:32:54.623127",
+  "modified": "2023-01-23 11:55:43.530920",
   "module": "vms",
   "name": "Past Activities",
   "standard": 0,
-  "template": "{% set activities = frappe.db.sql(\"\"\" select a.activity_name, a.city, a.description, a.start_date, a.status, m.user from `tabVol Activity` a left  join `tabVolunteer Mapping` as m on a.city = m.city and m.user = %(user)s where (a.city = m.city or a.city is null or a.city = '') and status ='Closed' order by a.start_date desc\"\"\", {'status': 'Closed', 'user': frappe.session.user}, as_dict=True )%}\n\n<h2 class=\"section-title\">{{ title }}</h2>\n\n<div class=\"row mt-4\">\n{% for activity in activities %}\n<div class=\"col-md-4  \" id=\"conference\">\n    <div class=\"mb-2\">\n  <div class=\"card-body\">\n      {% if activity.city %}\n      <span class=\"city\">{{ activity.city }}</span>\n      {%else%}\n      <span class=\"city\">Pan India</span>\n      {% endif %}\n    <h5 class=\"card-title\">{{activity.activity_name}}</h5>\n    <p class=\"card-text\">{{activity.description}}</p>\n  </div>\n  \n  <ul class=\"list-group list-group-flush\">\n    <li class=\"list-group-item date\">Start: {{ frappe.format_date(activity.start_date) }}</li>\n  </ul>\n  <div class=\"card-body\">\n    <a href=\"{{activity.activity_name}}\" class=\"checkin\">MORE DETAILS</a>\n  </div>\n  </div>\n</div>\n{% endfor %}\n</div>",
+  "template": "{% set activities = frappe.db.sql(\"\"\" select a.activity_name, a.city, a.description, a.start_date, a.status, m.user from `tabVol Activity` a left  join `tabVolunteer Mapping` as m on a.city = m.city and m.user = %(user)s where (a.city = m.city or a.city is null or a.city = '') and status ='Closed' order by a.start_date desc\"\"\", {'status': 'Closed', 'user': frappe.session.user}, as_dict=True )%}\n\n<h2 class=\"section-title\">{{ title }}</h2>\n\n<div class=\"row mt-4\">\n{% for activity in activities %}\n<div class=\"col-md-4  \" id=\"conference\">\n    <div class=\"mb-2\">\n  <div class=\"card-body\">\n      {% if activity.city %}\n      <span class=\"city\">{{ activity.city }}</span>\n      {%else%}\n      <span class=\"city\">Pan India</span>\n      {% endif %}\n    <h5 class=\"card-title\">{{activity.activity_name}}</h5>\n    <p class=\"card-text\">{{activity.description}}</p>\n  </div>\n  \n  <ul class=\"list-group list-group-flush\">\n    <li class=\"list-group-item date\">Start: {{ frappe.format_date(activity.start_date) }}</li>\n  </ul>\n  <div class=\"card-body\">\n    <a href=\"activity/{{activity.activity_name}}\" class=\"checkin\">MORE DETAILS</a>\n  </div>\n  </div>\n</div>\n{% endfor %}\n</div>",
   "type": "Section"
  },
  {
