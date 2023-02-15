@@ -198,3 +198,5 @@ doc_events = {
         "before_insert": "vms.utils.user.username"
     }
 }
+
+after_install = "vms.utils.create_home_page.create"
