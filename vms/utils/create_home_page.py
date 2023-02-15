@@ -6,10 +6,9 @@ import frappe
 def execute():
     """Create home page."""
     if not frappe.db.exists("Web Page", "home"):
-        frappe.flags.in_import = True
         doc = frappe.new_doc("Web Page")
         doc.title = "Home"
-        doc.rout = "home"
+        doc.route = "home"
         doc.published = 1
         doc.content = "Page Builder"
         doc.page_blocks = [
@@ -58,4 +57,3 @@ def execute():
         doc.full_width = 1
         doc.text_align = "Left"
         doc.save(ignore_permissions=True)
-        frappe.flags.in_import = False
