@@ -39,8 +39,7 @@ def execute():
                     "add_bottom_padding": 1
                 }
             ],
-            "context_script": """context.no_cache = 1
-        context.site_map = 1""",
+            "context_script": """context.no_cache = 1\ncontext.site_map = 1""",
             "javascript": """window.onload = function() {
             if (frappe.session.user != 'Guest'){
                     frappe.call({
