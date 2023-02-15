@@ -118,10 +118,10 @@ def execute():
         doc.insert(ignore_permissions=True, ignore_links=True)
         frappe.db.commit()
 
-    if not frappe.db.exists("Web Page", "user_profile"):
+    if not frappe.db.exists("Web Page", "profile"):
         doc = frappe.get_doc({
             "doctype": "Web Page",
-            "title": "user profile",
+            "title": "profile",
             "route": "v/<username>",
             "published": 1,
             "dynamic_route": 1,
