@@ -199,4 +199,4 @@ doc_events = {
     }
 }
 
-# after_install = "vms.utils.create_home_page.create"
+after_install = "vms.utils.create_home_page.execute"
