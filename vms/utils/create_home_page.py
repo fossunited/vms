@@ -56,3 +56,4 @@ def execute():
             "full_width": 1,
             "text_align": "Left"})
         doc.save(ignore_permissions=True)
+        frappe.db.commit()
