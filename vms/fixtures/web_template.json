@@ -216,11 +216,11 @@
     "reqd": 0
    }
   ],
-  "modified": "2023-01-18 18:18:22.023803",
+  "modified": "2023-02-15 14:23:42.354701",
   "module": "vms",
   "name": "Hero with left image",
   "standard": 0,
-  "template": "<div class=\"row\">\n    <div class=\"col-md-6\">\n        <img alt=\"\" class=\"image-with-blur hero-image contain-image image-loaded\" height=\"402px\" src=\"{{ image }}\" width=\"536px\">\n    </div>\n    <div class=\"col-md-6\">\n        <div class=\"hero-content\">\n<div>\n<h1 class=\"hero-title\">\n\t\t\t\t{{ title }}\n\t\t\t</h1><p class=\"hero-subtitle\">\n\t\t\t\t{{ subtitle }}\n\n\t\t\t</p>\n\t\t\t<div class=\"checkin-btn\"><a class=\"checkin\" href= \"{{ primary_action_url }}\">\n\t\t\t\t\t{{ primary_button_label }}\n\t\t\t\t</a>\n\t\t\t</div>\n</div>\n</div>\n    </div>\n</div>",
+  "template": "<div class=\"row\">\n    <div class=\"col-md-6\">\n        <img alt=\"\" class=\"image-with-blur hero-image contain-image image-loaded\" height=\"402px\" src=\"{{ image }}\" width=\"536px\">\n    </div>\n    <div class=\"col-md-6\">\n        <div class=\"hero-content\">\n<div>\n<h1 class=\"hero-title\">\n\t\t\t\t{{ title }}\n\t\t\t</h1><p class=\"hero-subtitle\">\n\t\t\t\t{{ subtitle }}\n\n\t\t\t</p>\n\t\t\t<div class=\"btn btn-primary\"><a class=\"checkin\" href= \"{{ primary_action_url }}\">\n\t\t\t\t\t{{ primary_button_label }}\n\t\t\t\t</a>\n\t\t\t</div>\n</div>\n</div>\n    </div>\n</div>",
   "type": "Section"
  },
  {
