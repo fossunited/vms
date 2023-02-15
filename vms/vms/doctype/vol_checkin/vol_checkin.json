@@ -11,7 +11,9 @@
   "hours_spent",
   "user",
   "status",
-  "description"
+  "column_break_6",
+  "description",
+  "city"
  ],
  "fields": [
   {
@@ -46,11 +48,21 @@
    "fieldname": "description",
    "fieldtype": "Text",
    "label": "Description"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Link",
+   "label": "City",
+   "options": "Volunteer Cities"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-10-17 20:50:12.693006",
+ "modified": "2023-02-02 12:13:30.603253",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Vol Checkin",
