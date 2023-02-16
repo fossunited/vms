@@ -118,10 +118,10 @@ def execute():
         doc.insert(ignore_permissions=True, ignore_links=True)
         frappe.db.commit()
 
-    if not frappe.db.exists("Web Page", "profile"):
+    if not frappe.db.exists("Web Page", "user"):
         doc = frappe.get_doc({
             "doctype": "Web Page",
-            "title": "profile",
+            "title": "user",
             "route": "v/<username>",
             "published": 1,
             "dynamic_route": 1,
@@ -156,8 +156,9 @@ def execute():
         })
         doc.insert(ignore_permissions=True, ignore_links=True)
         frappe.db.commit()
+
     if not frappe.db.exists("Web Page", "activity"):
-        frappe.get_doc({
+        doc = frappe.get_doc({
             "content_type": "HTML",
             "context_script": "context.no_cache = 1\ncontext.activity = frappe.db.sql(\n    \"\"\" SELECT a.*, SEC_TO_TIME(sum(c.hours_spent)) as checkin_count from `tabVol Activity` as a inner join `tabVol Checkin` as c on a.name = c.activity where a.name=%(activity)s\"\"\", args, as_dict=True)[0]\n\ncontext.checkins = frappe.db.sql(\"\"\" SELECT u.username, u.user_image as profile_thumbnail, u.full_name, SEC_TO_TIME(sum(c.hours_spent)) as checkin_count from `tabVol Checkin` c inner join `tabUser` as u on c.user = u.name where c.activity=%(activity)s group by c.user \"\"\", args, as_dict=True)", # noqa
             "css": ".section-markdown>.from-markdown {\n    max-width: 50rem;\n     margin: 0px; \n}", # noqa
