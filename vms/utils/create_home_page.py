@@ -4,7 +4,11 @@ import frappe
 
 
 def execute():
-    """Create home page."""
+    """
+    Create home page.
+
+    bench execute vms.utils.create_home_page.execute
+    """
     if not frappe.db.exists("Web Page", "home"):
         doc = frappe.get_doc({
             "doctype": "Web Page",
@@ -18,6 +22,7 @@ def execute():
                     "add_container": 1,
                     "add_top_padding": 1,
                     "add_bottom_padding": 1,
+                    "add_border_at_bottom": 1,
                     "web_template_values": json.dumps({
                         "image": "/assets/frappe/images/frappe-framework-logo.svg",
                         "title": "Lorem ipsum dolor sit amet, consectetur adip",
@@ -29,6 +34,7 @@ def execute():
                 {
                     "web_template": "Hero with Right Image",
                     "add_container": 1,
+                    "add_border_at_bottom": 1,
                     "web_template_values": json.dumps({
                         "title": "Lorem ipsum dolor sit amet, consectetur",
                         "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", # noqa
@@ -40,6 +46,7 @@ def execute():
                     "web_template": "Top volunteers",
                     "add_container": 1,
                     "add_bottom_padding": 1,
+                    "add_border_at_bottom": 1,
                     "web_template_values": json.dumps({
                         "title": "Leaderboard",
                         "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt", # noqa
@@ -56,6 +63,7 @@ def execute():
                     "web_template": "Current Activities",
                     "add_container": 1,
                     "add_bottom_padding": 1,
+                    "add_border_at_bottom": 1,
                     "web_template_values": json.dumps({
                         "title": "Section title 1",
                         "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt" # noqa
@@ -75,7 +83,7 @@ def execute():
             "javascript": """window.onload = function() {
             if (frappe.session.user != 'Guest'){
                     frappe.call({
-                        'method': 'user_mapping',
+                        'method': 'vms.utils.user.mapping',
                         callback: function(data) {
                             if(data.message != frappe.session.user){
                                 window.location = '/volunteer-mapping/new'
@@ -131,6 +139,7 @@ def execute():
                 "add_container": 1,
                 "add_top_padding": 1,
                 "add_bottom_padding": 1,
+                "add_border_at_bottom": 1,
                 "web_template_values": json.dumps({
                     "title": "Leaderboard",
                     "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt", # noqa
@@ -171,6 +180,55 @@ def execute():
             "route": "activity/<activity>",
             "text_align": "Left",
             "title": "Activity"
+        })
+        doc.insert(ignore_permissions=True, ignore_links=True)
+        frappe.db.commit()
+
+    if not frappe.db.exists("Web Page", "city"):
+        doc = frappe.get_doc({
+            "doctype": "Web Page",
+            "title": "City",
+            "route": "city/<city>",
+            "published": 1,
+            "dynamic_route": 1,
+            "content": "Page Builder",
+            "page_blocks": [{
+                "web_template": "City",
+                "add_container": 1,
+                "add_top_padding": 1,
+                "add_border_at_bottom": 1,
+                "add_bottom_padding": 1,
+            },
+            {
+                "web_template": "User Volunteer",
+                "add_container": 1,
+                "add_bottom_padding": 1,
+                "add_border_at_bottom": 1,
+                "web_template_values": json.dumps({
+                    "title": "Leaderboard",
+                    "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt", # noqa
+                    "limit": 50
+                })
+            },
+            {
+                    "web_template": "Current Activities",
+                    "add_container": 1,
+                    "add_bottom_padding": 1,
+                    "add_border_at_bottom": 1,
+                    "web_template_values": json.dumps({
+                        "title": "Section title 1",
+                        "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt" # noqa
+                    })
+                },
+                {
+                    "web_template": "Past Activities",
+                    "add_container": 1,
+                    "add_bottom_padding": 1,
+                    "web_template_values": json.dumps({
+                        "title": "Section title 1",
+                        "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt" # noqa
+                    })
+                }]
         })
         doc.insert(ignore_permissions=True, ignore_links=True)
         frappe.db.commit()
