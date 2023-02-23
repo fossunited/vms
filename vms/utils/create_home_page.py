@@ -73,11 +73,24 @@ def execute():
                     "web_template": "Past Activities",
                     "add_container": 1,
                     "add_bottom_padding": 1,
+                    "add_border_at_bottom": 1,
                     "web_template_values": json.dumps({
                         "title": "Section title 1",
                         "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt" # noqa
                     })
-                }
+                },
+                {
+                    "web_template": "Chart",
+                    "add_container": 1,
+                    "add_bottom_padding": 1,
+                    "web_template_values": json.dumps({
+                        "title": "Chart",
+                        "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt", # noqa
+                        "query": """select CEILING(((sum(hours_spent))/60)/60), activity from `tabVol Checkin` where date(creation) >= now() - INTERVAL 60 day group by activity""", # noqa
+                        "graph_type": "bar",
+                        "color": "#2490ef"
+                    })
+                },
             ],
             "context_script": """context.no_cache = 1\ncontext.site_map = 1""",
             "javascript": """window.onload = function() {

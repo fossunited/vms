@@ -16,7 +16,7 @@ app_license = "MIT"
 
 # include js, css files in header of web template
 web_include_css = "/assets/vms/css/vms.css"
-# web_include_js = "/assets/vms/js/vms.js"
+web_include_js = "https://unpkg.com/frappe-charts@latest"
 
 # include custom scss in every website theme (without file extension ".scss")
 # website_theme_scss = "vms/public/scss/website"
