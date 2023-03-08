@@ -81,3 +81,26 @@ td a:not(:hover){
     margin-bottom: 6px;
     font-size: 14px;
 }
+
+.card-body h5{
+    text-align: left;
+    font-weight: bold;
+    font-size: 18px/44px;
+    letter-spacing: 0px;
+    color: #222222;
+    opacity: 1;
+    margin-top: 3%;
+}
+.card-body p{
+    text-align: left;
+    font-size: 16px/20px;
+    letter-spacing: 0px;
+    color: #888888;
+    opacity: 1;
+}
+
+.date{
+    font-size: 16px/20px;
+    letter-spacing: 0px;
+    color: #888888;
+}
