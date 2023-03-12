@@ -295,7 +295,7 @@
   "doctype": "Web Template",
   "fields": [
    {
-    "default": null,
+    "default": "Chart",
     "fieldname": "title",
     "fieldtype": "Data",
     "label": "Title",
@@ -306,7 +306,7 @@
     "reqd": 0
    },
    {
-    "default": null,
+    "default": "select CEILING(((sum(hours_spent))/60)/60), activity from `tabVol Checkin` where date(creation) >= now() - INTERVAL 60 day group by activity",
     "fieldname": "query",
     "fieldtype": "Small Text",
     "label": "Query",
@@ -317,7 +317,7 @@
     "reqd": 1
    },
    {
-    "default": null,
+    "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
     "fieldname": "subtitle",
     "fieldtype": "Data",
     "label": "Subtitle",
@@ -328,7 +328,7 @@
     "reqd": 0
    },
    {
-    "default": null,
+    "default": "bar",
     "fieldname": "graph_type",
     "fieldtype": "Select",
     "label": "Graph Type",
@@ -339,7 +339,7 @@
     "reqd": 1
    },
    {
-    "default": null,
+    "default": "#2490ef",
     "fieldname": "color",
     "fieldtype": "Data",
     "label": "Graph color",
@@ -350,7 +350,7 @@
     "reqd": 0
    }
   ],
-  "modified": "2023-02-23 16:53:23.511964",
+  "modified": "2023-03-12 10:01:19.659314",
   "module": "vms",
   "name": "Chart",
   "standard": 0,
