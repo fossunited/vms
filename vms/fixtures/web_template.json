@@ -124,9 +124,20 @@
     "parentfield": "fields",
     "parenttype": "Web Template",
     "reqd": 0
+   },
+   {
+    "default": null,
+    "fieldname": "subtitle",
+    "fieldtype": "Data",
+    "label": "Subtitle",
+    "options": null,
+    "parent": "Current Activities",
+    "parentfield": "fields",
+    "parenttype": "Web Template",
+    "reqd": 0
    }
   ],
-  "modified": "2023-02-23 16:43:07.544335",
+  "modified": "2023-03-13 10:00:24.132736",
   "module": "vms",
   "name": "Current Activities",
   "standard": 0,
@@ -147,9 +158,20 @@
     "parentfield": "fields",
     "parenttype": "Web Template",
     "reqd": 0
+   },
+   {
+    "default": null,
+    "fieldname": "subtitle",
+    "fieldtype": "Data",
+    "label": "Subtitle",
+    "options": null,
+    "parent": "Past Activities",
+    "parentfield": "fields",
+    "parenttype": "Web Template",
+    "reqd": 0
    }
   ],
-  "modified": "2023-02-23 16:42:46.966001",
+  "modified": "2023-03-13 10:00:12.671009",
   "module": "vms",
   "name": "Past Activities",
   "standard": 0,
